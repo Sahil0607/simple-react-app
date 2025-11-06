@@ -1,5 +1,5 @@
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
 import ShowItemDetail from "./ShowItemDetail/ShowItemDetail";
 
 const GetItemDetail = () => {
@@ -8,11 +8,12 @@ const GetItemDetail = () => {
 
   useEffect(() => {
     getUserData();
-  }, []);
+  }, [id]);
 
-  const getUserData = () => {
+  const getUserData = async () => {
+    console.log("Fetched user data: ", user);
     const url = `https://jsonplaceholder.typicode.com/users/${id}`;
-    fetch(url)
+    await fetch(url)
       .then((response) => response.json())
       .then((userData) => setUser(userData))
       .catch((error) => console.error(error));
@@ -23,7 +24,11 @@ const GetItemDetail = () => {
       <h2>Item Detail Component</h2>
       <p>Item ID: {id}</p>
       <br />
-      <ShowItemDetail userDetail={user} />
+      {user && Object.keys(user).length > 0 ? (
+        <ShowItemDetail itemDetail={user} />
+      ) : (
+        <p>No user data available.</p>
+      )}
     </div>
   );
 };
