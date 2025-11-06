@@ -7,13 +7,10 @@ const ItemList = ({ name }) => {
   const [users, setUsers] = useState([]);
 
   const getAllUsers = async (usersUrl) => {
-    try {
-      const response = await fetch(usersUrl);
-      const data = await response.json();
-      setUsers(data);
-    } catch (error) {
-      console.error("Error on fetching users ", error);
-    }
+    await fetch(usersUrl)
+      .then((response) => response.json())
+      .then((usersData) => setUsers(usersData))
+      .catch((error) => console.error(error));
   };
 
   useEffect(() => {
