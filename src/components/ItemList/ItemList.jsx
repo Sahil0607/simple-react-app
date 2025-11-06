@@ -52,5 +52,4 @@ const ItemList = ({ name }) => {
 
 export default ItemList;
 
-// And another pageXOffset, input, which will take value and post calculateNewValue
 // And also delete api call.
