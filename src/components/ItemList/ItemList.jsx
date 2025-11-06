@@ -11,6 +11,8 @@ const ItemList = ({ name }) => {
       .then((response) => response.json())
       .then((usersData) => setUsers(usersData))
       .catch((error) => console.error(error));
+
+    console.log("ItemList component rendered");
   };
 
   useEffect(() => {
