@@ -9,41 +9,18 @@ const ShowItemDetail = ({ itemDetail }) => {
 
       <div className={styles.content}>
         <div className={styles.row}>
-          <span className={styles.label}>Name</span>
-          <span className={styles.value}>{itemDetail?.name}</span>
+          <span className={styles.label}>Title</span>
+          <span className={styles.value}>{itemDetail?.title}</span>
         </div>
 
         <div className={styles.row}>
-          <span className={styles.label}>Email</span>
-          <span className={styles.value}>{itemDetail?.email}</span>
+          <span className={styles.label}>Body</span>
+          <span className={styles.value}>{itemDetail?.body}</span>
         </div>
 
         <div className={styles.row}>
-          <span className={styles.label}>Phone</span>
-          <span className={styles.value}>{itemDetail?.phone}</span>
-        </div>
-
-        <div className={styles.row}>
-          <span className={styles.label}>Website</span>
-          <span className={styles.value}>{itemDetail?.website}</span>
-        </div>
-
-        <div className={styles.row}>
-          <span className={styles.label}>Address</span>
-          <span className={styles.value}>
-            {itemDetail?.address
-              ? `${itemDetail.address.suite}, ${itemDetail.address.street}, ${itemDetail.address.city} - ${itemDetail.address.zipcode}`
-              : ""}
-          </span>
-        </div>
-
-        <div className={styles.row}>
-          <span className={styles.label}>Company</span>
-          <span className={styles.value}>
-            {itemDetail?.company
-              ? `${itemDetail.company.name} — ${itemDetail.company.catchPhrase}`
-              : ""}
-          </span>
+          <span className={styles.label}>User ID</span>
+          <span className={styles.value}>{itemDetail?.userId}</span>
         </div>
       </div>
     </div>

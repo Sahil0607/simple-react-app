@@ -4,20 +4,20 @@ import ShowItemDetail from "./ShowItemDetail/ShowItemDetail";
 
 const GetItemDetail = () => {
   const { id } = useParams(); // get id from url params
-  const [user, setUser] = useState({});
+  const [item, setItem] = useState({});
 
   useEffect(() => {
-    getUserData();
+    getItemData();
   }, []);
 
-  const getUserData = async () => {
-    const url = `https://jsonplaceholder.typicode.com/users/${id}`;
+  const getItemData = async () => {
+    const url = `https://jsonplaceholder.typicode.com/posts/${id}`;
     await fetch(url)
       .then((response) => response.json())
-      .then((userData) => setUser(userData))
+      .then((itemData) => setItem(itemData))
       .catch((error) => console.error(error));
 
-    console.log("Fetched user data: ", user);
+    console.log("Fetched item data: ", item);
   };
 
   return (
@@ -25,10 +25,10 @@ const GetItemDetail = () => {
       <h2>Item Detail Component</h2>
       <p>Item ID: {id}</p>
       <br />
-      {user && Object.keys(user).length > 0 ? (
-        <ShowItemDetail itemDetail={user} />
+      {item && Object.keys(item).length > 0 ? (
+        <ShowItemDetail itemDetail={item} />
       ) : (
-        <p>No user data available.</p>
+        <p>No item data available.</p>
       )}
     </div>
   );
