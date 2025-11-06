@@ -8,15 +8,16 @@ const GetItemDetail = () => {
 
   useEffect(() => {
     getUserData();
-  }, [id]);
+  }, []);
 
   const getUserData = async () => {
-    console.log("Fetched user data: ", user);
     const url = `https://jsonplaceholder.typicode.com/users/${id}`;
     await fetch(url)
       .then((response) => response.json())
       .then((userData) => setUser(userData))
       .catch((error) => console.error(error));
+
+    console.log("Fetched user data: ", user);
   };
 
   return (

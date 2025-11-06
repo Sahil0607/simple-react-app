@@ -1,6 +1,4 @@
 const ShowItemDetail = ({ itemDetail }) => {
-  console.log("Item Detail Props:", itemDetail);
-
   return (
     <div>
       <h3>Show Item Detail Component</h3>
