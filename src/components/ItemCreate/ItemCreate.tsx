@@ -1,7 +1,12 @@
 import { useState } from "react";
 import styles from "./ItemCreate.module.css";
 
-type FormData = { id: string; userId: string; title: string; body: string };
+interface FormData {
+  id: string;
+  userId: string;
+  title: string;
+  body: string;
+}
 
 const ItemCreate = () => {
   const [formData, setFormData] = useState<FormData>({
